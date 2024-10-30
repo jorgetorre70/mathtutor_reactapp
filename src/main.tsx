@@ -42,13 +42,13 @@ const components = {
         <AmplifyImage alt="UAIE logo" src={logoImage} className="auth-logo" />
         <Text
           variation="primary"
-          as="h2"
+          // as="h2"
           fontSize={tokens.fontSizes.xl}
           fontWeight={tokens.fontWeights.bold}
           color={tokens.colors.white}
           marginTop={tokens.space.medium}
         >
-          Asistente de Matemáticas
+          Bienvenido al asistente de Matemáticas
         </Text>
       </View>
     );

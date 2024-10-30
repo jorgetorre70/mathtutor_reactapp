@@ -45,20 +45,13 @@ export const menuRoutes = [
   //   description: "Muestra el progreso del usuario en diferentes áreas y temas",
   //   component: <FollowUpPage />,
   // },
-  {
-    to: "/assistant",
-    icon: "fa-solid fa-user",
-    title: "Asistente",
-    description: "Apoyo personalizado para mejorar las habilidades matemáticas",
-    component: <AssistantPage />,
-  },
-  {
-    to: "/assistant",
-    icon: "fa-solid fa-user",
-    title: "Asistente",
-    description: "Apoyo personalizado para mejorar las habilidades matemáticas",
-    component: <AssistantPage />,
-  },
+  // {
+  //   to: "/assistant",
+  //   icon: "fa-solid fa-user",
+  //   title: "Asistente",
+  //   description: "Apoyo personalizado para mejorar las habilidades matemáticas",
+  //   component: <AssistantPage />,
+  // },
 ];
 
 export const router = createBrowserRouter([

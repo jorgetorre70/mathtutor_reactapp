@@ -3,8 +3,8 @@ import {
   GptMessage,
   GptproblemsolverMessage,
   MyMessage,
-  //TextMessageBox,
-  TextMessageBoxFile,
+  TextMessageBox,
+  //TextMessageBoxFile,
   TypingLoader,
 } from "../../components";
 import { problemsolverUseCase } from "../../../core/use-cases/problemsolver.use-case";
@@ -84,7 +84,7 @@ export const ProblemSolverPage = () => {
           )}
         </div>
       </div>
-      <TextMessageBoxFile
+      <TextMessageBox
         onSendMessage={handlePostMessage}
         placeholder="Escribe aquí tu pregunta"
       />

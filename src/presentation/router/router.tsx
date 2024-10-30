@@ -5,7 +5,7 @@ import {
   // PlotVisualizationPage,
   // InteractiveExercisesPage,
   // FollowUpPage,
-  AssistantPage,
+  //AssistantPage,
 } from "../pages";
 import { DashboardLayout } from "../layouts/DashboardLayout";
 

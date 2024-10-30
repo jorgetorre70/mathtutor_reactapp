@@ -52,6 +52,13 @@ export const menuRoutes = [
     description: "Apoyo personalizado para mejorar las habilidades matemáticas",
     component: <AssistantPage />,
   },
+  {
+    to: "/assistant",
+    icon: "fa-solid fa-user",
+    title: "Asistente",
+    description: "Apoyo personalizado para mejorar las habilidades matemáticas",
+    component: <AssistantPage />,
+  },
 ];
 
 export const router = createBrowserRouter([

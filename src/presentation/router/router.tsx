@@ -14,7 +14,7 @@ export const menuRoutes = [
   //   to: "/problemsolver",
   //   icon: "fa-solid fa-book-open-reader",
   //   title: "Tutor",
-  //   description: "Tu apoyo en todo momento",
+  //   description: "Tu apoyo en Matemáticas",
   //   component: <ProblemSolverPage />,
   // },
   // {

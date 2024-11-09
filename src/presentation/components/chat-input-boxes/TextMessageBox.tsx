@@ -54,9 +54,7 @@ export const TextMessageBox = ({
       <form
         onSubmit={handleSendMessage}
         className="flex items-center gap-2 sm:gap-4 bg-white rounded-xl shadow-lg 
-                 p-2 sm:p-3 border border-gray-200 fixed bottom-0 left-0 right-0 
-                 sm:relative sm:bottom-auto sm:left-auto sm:right-auto
-                 bg-opacity-95 backdrop-blur-sm"
+                 p-2 sm:p-3 border border-gray-200"
       >
         {/* Input Container */}
         <div className="flex-1 min-w-0">
@@ -75,7 +73,6 @@ export const TextMessageBox = ({
             spellCheck={disabledCorrections ? true : false}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
-            style={{ marginBottom: "env(safe-area-inset-bottom)" }}
           />
         </div>
 

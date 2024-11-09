@@ -108,86 +108,82 @@ export const GptMessage: React.FC<Props> = ({ text }) => {
   //   </div>
   // );
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-      <div className="flex items-start space-x-3 sm:space-x-4">
-        {/* Bot Icon - Responsive sizing */}
-        <div className="flex-shrink-0">
-          <IconContext.Provider
-            value={{
-              color: "#3E9FBD",
-              size: "2.5em",
-              className: "sm:w-12 sm:h-12 w-8 h-8",
-            }}
-          >
+    <div className="col-start-1 col-end-9 p-3 rounded-lg">
+      <div className="flex flex-row items-start">
+        <IconContext.Provider
+          value={{
+            color: "#3E9FBD",
+            size: "2.5em",
+            className: "sm:w-12 sm:h-12 w-8 h-8",
+          }}
+        >
+          <div className="flex-shrink-0">
             <GiMegabot />
-          </IconContext.Provider>
-        </div>
+          </div>
+        </IconContext.Provider>
 
         {/* Message Content - Responsive width and padding */}
-        <div className="flex-1 min-w-0 max-w-[85%] sm:max-w-[75%]">
-          <div className="relative bg-black bg-opacity-25 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-sm">
-            <div className="text-sm sm:text-base prose prose-invert max-w-none">
-              {typeof text === "string" ? (
-                <Markdown
-                  components={{
-                    p: ({ children }) => (
-                      <p className="mb-2 last:mb-0">{renderLatex(children)}</p>
-                    ),
-                    span: ({ children }) => (
-                      <span className="inline-block">
-                        {renderLatex(children)}
-                      </span>
-                    ),
-                    strong: ({ children }) => (
-                      <strong className="font-semibold">
-                        {renderLatex(children)}
-                      </strong>
-                    ),
-                    em: ({ children }) => (
-                      <em className="italic">{renderLatex(children)}</em>
-                    ),
-                    // Handle code blocks and inline code
-                    code: ({ children }) => (
-                      <code className="bg-black bg-opacity-50 px-1 py-0.5 rounded text-sm">
-                        {children}
-                      </code>
-                    ),
-                    pre: ({ children }) => (
-                      <pre className="bg-black bg-opacity-50 p-3 rounded-lg overflow-x-auto my-2 text-sm">
-                        {children}
-                      </pre>
-                    ),
-                    // Handle lists
-                    ul: ({ children }) => (
-                      <ul className="list-disc list-inside my-2 space-y-1">
-                        {children}
-                      </ul>
-                    ),
-                    ol: ({ children }) => (
-                      <ol className="list-decimal list-inside my-2 space-y-1">
-                        {children}
-                      </ol>
-                    ),
-                    // Handle links
-                    a: ({ children, href }) => (
-                      <a
-                        href={href}
-                        className="text-blue-400 hover:text-blue-300 underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {children}
-                      </a>
-                    ),
-                  }}
-                >
-                  {text}
-                </Markdown>
-              ) : (
-                renderLatex(text)
-              )}
-            </div>
-          </div>
+        <div
+          className="relative ml-3 text-sm bg-black bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-xl
+                      break-words overflow-wrap-anywhere max-w-full"
+        >
+          {typeof text === "string" ? (
+            <Markdown
+              components={{
+                p: ({ children }) => (
+                  <p className="mb-2 last:mb-0">{renderLatex(children)}</p>
+                ),
+                span: ({ children }) => (
+                  <span className="inline-block">{renderLatex(children)}</span>
+                ),
+                strong: ({ children }) => (
+                  <strong className="font-semibold">
+                    {renderLatex(children)}
+                  </strong>
+                ),
+                em: ({ children }) => (
+                  <em className="italic">{renderLatex(children)}</em>
+                ),
+                // Handle code blocks and inline code
+                code: ({ children }) => (
+                  <code className="bg-black bg-opacity-50 px-1 py-0.5 rounded text-sm">
+                    {children}
+                  </code>
+                ),
+                pre: ({ children }) => (
+                  <pre className="bg-black bg-opacity-50 p-3 rounded-lg overflow-x-auto my-2 text-sm">
+                    {children}
+                  </pre>
+                ),
+                // Handle lists
+                ul: ({ children }) => (
+                  <ul className="list-disc list-inside my-2 space-y-1">
+                    {children}
+                  </ul>
+                ),
+                ol: ({ children }) => (
+                  <ol className="list-decimal list-inside my-2 space-y-1">
+                    {children}
+                  </ol>
+                ),
+                // Handle links
+                a: ({ children, href }) => (
+                  <a
+                    href={href}
+                    className="text-blue-400 hover:text-blue-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {text}
+            </Markdown>
+          ) : (
+            renderLatex(text)
+          )}
         </div>
       </div>
     </div>

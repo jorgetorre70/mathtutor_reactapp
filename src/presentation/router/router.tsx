@@ -50,7 +50,7 @@ export const menuRoutes = [
     icon: "fa-solid fa-user",
     title: "Asistente",
     description: "Apoyo personalizado para mejorar las habilidades matemáticas",
-    component: <AssistantPage />,
+    component: <AssistantPage children={undefined} />,
   },
 ];
 

@@ -119,7 +119,8 @@ export const DashboardLayout = () => {
             </span>
           </div>
 
-          <div className="w-full border-t border-gray-700 my-4" />
+          {/* <div className="w-full border-t border-gray-700 my-4" /> */}
+          <div className="flex flex-col h-full" />
 
           {/* Menu Items */}
           <div className="flex-1 overflow-y-auto">
@@ -131,7 +132,7 @@ export const DashboardLayout = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-auto pt-6">
+          <div className="pt-2 pb-2">
             {/* Logout Button */}
             <button
               onClick={handleSignOut}
@@ -146,7 +147,7 @@ export const DashboardLayout = () => {
             </button>
 
             {/* Copyright */}
-            <div className="mt-4 text-center">
+            <div className="mt-2 text-center">
               <span className="text-xs text-gray-400">
                 Derechos Reservados &copy; 2024 J.T.R.
               </span>

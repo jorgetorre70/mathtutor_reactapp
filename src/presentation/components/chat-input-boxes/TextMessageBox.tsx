@@ -35,20 +35,20 @@ export const TextMessageBox = ({
     <>
       <div ref={messagesEndRef} />
       <div
-        className="w-full bg-gray-900 border-t border-gray-800"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          paddingBottom: "env(safe-area-inset-bottom, 16px)",
-          zIndex: 50,
-        }}
+        className="w-full max-w-3xl mx-auto bg-gray-900 border-t border-gray-800"
+        // style={{
+        //   position: "fixed",
+        //   bottom: 0,
+        //   left: 0,
+        //   right: 0,
+        //   paddingBottom: "env(safe-area-inset-bottom, 16px)",
+        //   zIndex: 50,
+        // }}
       >
-        <div className="max-w-4xl mx-auto px-4 py-4">
+        <div className="px-4 py-4">
           <form
             onSubmit={handleSendMessage}
-            className="flex items-center gap-2 sm:gap-4 max-w-4xl mx-auto px-4 py-2 sm:py-3"
+            className="flex items-center gap-2 sm:gap-4 py-2 sm:py-3"
           >
             {/* Input Container */}
             <div className="flex-1 min-w-0">

@@ -69,17 +69,18 @@ export const AssistantPage: React.FC<{ children: React.ReactNode }> = ({
     [threadId, addMessage]
   );
   return (
-    <div className="flex flex-col h-screen bg-gray-900">
+    <div className="flex overflow-y-auto flex-col h-screen bg-gray-900">
       {/* Main container with responsive padding */}
       <div className="flex-1 flex flex-col max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Chat container with responsive height */}
         <div className="flex-1 flex flex-col min-h-0 py-4">
           {/* Messages container with responsive scrolling */}
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1">
             <div
               className="space-y-4 max-w-3xl mx-auto"
               style={{
-                paddingBottom: "calc(80px + env(safe-area-inset-bottom, 16px))",
+                //paddingBottom: "calc(80px + env(safe-area-inset-bottom, 16px))",
+                scrollBehavior: "smooth",
               }}
             >
               <GptMessage text="Hola, soy MathTutor tu asistente para aprendizaje de matemáticas. ¿Cómo te puedo ayudar?" />
@@ -97,22 +98,26 @@ export const AssistantPage: React.FC<{ children: React.ReactNode }> = ({
                   <TypingLoader />
                 </div>
               )}
-              <div
+              {/* <div
                 ref={containerRef}
                 className="flex-1 overflow-y-auto pb-32"
                 style={{ scrollBehavior: "smooth" }}
-              >
-                {children}
-              </div>
+              > */}
+              {children}
+              {/* </div> */}
             </div>
           </div>
         </div>
       </div>
-      <TextMessageBox
-        onSendMessage={handlePostMessage}
-        placeholder="Escribe aquí tu pregunta"
-        disabledCorrections
-      />
+      <div className="fixed bottom-0 left-0 right-0 bg-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <TextMessageBox
+            onSendMessage={handlePostMessage}
+            placeholder="Escribe aquí tu pregunta"
+            disabledCorrections
+          />
+        </div>
+      </div>
     </div>
   );
 };

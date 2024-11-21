@@ -19,51 +19,31 @@ export const TextMessageBox = ({
     onSendMessage(message);
     setMessage("");
   };
-  // return (
-  //   <form
-  //     onSubmit={handleSendMessage}
-  //     className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4"
-  //   >
-  //     <div className="flex-grow flex-shrink-0">
-  //       <div className="relative w-full">
-  //         <input
-  //           type="text"
-  //           autoFocus
-  //           name="message"
-  //           className="flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10"
-  //           placeholder={placeholder}
-  //           autoComplete={disabledCorrections ? "on" : "off"}
-  //           autoCorrect={disabledCorrections ? "on" : "off"}
-  //           spellCheck={disabledCorrections ? true : false}
-  //           value={message}
-  //           onChange={(event) => setMessage(event.target.value)}
-  //         />
-  //       </div>
-  //     </div>
 
-  //     <div className="ml-4">
-  //       <button className="btn-primary">
-  //         <span className="mr-2"> Enviar</span>
-  //         <i className="fa-regular fa-paper-plane"></i>
-  //       </button>
-  //     </div>
-  //   </form>
-  // );
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+    <div
+      className="w-full bg-gray-900 border-t border-gray-800"
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingBottom: "env(safe-area-inset-bottom, 16px)",
+        zIndex: 50,
+      }}
+    >
       <form
         onSubmit={handleSendMessage}
-        className="flex items-center gap-2 sm:gap-4 bg-white rounded-xl shadow-lg 
-                 p-2 sm:p-3 border border-gray-200"
+        className="flex items-center gap-2 sm:gap-4 max-w-4xl mx-auto px-4 py-2 sm:py-3"
       >
         {/* Input Container */}
         <div className="flex-1 min-w-0">
           <input
             type="text"
-            autoFocus
             name="message"
-            className="w-full px-3 py-2 sm:py-2.5 text-sm sm:text-base
-                     border border-gray-300 rounded-lg
+            className="w-full px-3 py-2 sm:py-2.5 text-base text-white
+                     bg-gray-800 
+                     border border-gray-700 rounded-lg
                      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
                      transition-colors duration-200
                      placeholder:text-gray-400"

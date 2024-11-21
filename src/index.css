@@ -3,11 +3,24 @@
 @tailwind utilities;
 
 html,
+:root {
+  /* Prevent pull-to-refresh and bounce effects */
+  overscroll-behavior-y: none;
+  touch-action: manipulation;
+}
 body {
   /* background-color: #ffffff; */
   background-color: #000000;
   color: white;
   font-family: "Open Sans", sans-serif;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
 }
 
 h1 {

@@ -64,75 +64,41 @@ export const AssistantPage: React.FC = () => {
     },
     [threadId, addMessage]
   );
-
-  // return (
-  //   <div className="chat-container">
-  //     <div className="chat-messages">
-  //       <div className="grid grid-cols-12 gap-y-2">
-  //         <GptMessage text="Hola, soy MathTutor tu asistente para aprendizaje de matemáticas. ¿Cómo te puedo ayudar?" />
-
-  //         {messages.map((message) =>
-  //           message.isGpt ? (
-  //             <GptMessage key={message.id} text={message.text} />
-  //           ) : (
-  //             <MyMessage key={message.id} text={message.text} />
-  //           )
-  //         )}
-
-  //         {isLoading && (
-  //           <div className="col-start-1 col-end-12 fade-in">
-  //             <TypingLoader />
-  //           </div>
-  //         )}
-  //         <div ref={messagesEndRef} />
-  //       </div>
-  //     </div>
-  //     <TextMessageBox
-  //       onSendMessage={handlePostMessage}
-  //       placeholder="Escribe aquí tu pregunta"
-  //       disabledCorrections
-  //     />
-  //   </div>
-  // );
   return (
-    <div className="flex flex-col bg-gray-600">
-      <div className="flex-1 flex flex-col max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        {/* Chat container with responsive height */}
-        <div className="flex-1 flex flex-col min-h-0 py-4">
-          {/* Messages container with responsive scrolling */}
-          <div className="flex-1 overflow-y-auto">
-            <div className="space-y-4 max-w-3xl mx-auto">
-              <GptMessage text="Hola, soy MathTutor tu asistente para aprendizaje de matemáticas. ¿Cómo te puedo ayudar?" />
+    <div className="flex flex-col h-screen bg-gray-600">
+      {/* Chat Messages Container */}
+      <div className="flex-1 overflow-hidden">
+        <div
+          className="h-full overflow-y-auto"
+          style={{
+            paddingBottom: "calc(80px + env(safe-area-inset-bottom, 16px))",
+          }}
+        >
+          <div className="grid grid-cols-12 gap-y-2 mx-auto max-w-4xl px-4 sm:px-6 md:px-8">
+            <GptMessage text="Hola, soy MathTutor tu asistente para aprendizaje de matemáticas. ¿Cómo te puedo ayudar?" />
 
-              {messages.map((message) =>
-                message.isGpt ? (
-                  <GptMessage key={message.id} text={message.text} />
-                ) : (
-                  <MyMessage key={message.id} text={message.text} />
-                )
-              )}
+            {messages.map((message) =>
+              message.isGpt ? (
+                <GptMessage key={message.id} text={message.text} />
+              ) : (
+                <MyMessage key={message.id} text={message.text} />
+              )
+            )}
 
-              {isLoading && (
-                <div className="fade-in">
-                  <TypingLoader />
-                </div>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
-          </div>
-        </div>
-
-        {/* Input container with fixed positioning on mobile */}
-        <div className="sticky bottom-0 bg-white border-t border-gray-200 py-4">
-          <div className="max-w-3xl mx-auto">
-            <TextMessageBox
-              onSendMessage={handlePostMessage}
-              placeholder="Escribe aquí tu pregunta"
-              disabledCorrections
-            />
+            {isLoading && (
+              <div className="col-start-1 col-end-12 fade-in">
+                <TypingLoader />
+              </div>
+            )}
+            <div ref={messagesEndRef} />
           </div>
         </div>
       </div>
+      <TextMessageBox
+        onSendMessage={handlePostMessage}
+        placeholder="Escribe aquí tu pregunta"
+        disabledCorrections
+      />
     </div>
   );
 };

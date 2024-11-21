@@ -31,11 +31,13 @@ export const AssistantPage: React.FC<{ children: React.ReactNode }> = ({
     });
   }, []);
 
+  const scrollToBottom = () => {
+    containerRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  }, [children]);
+    scrollToBottom();
+  }, [messages]); // Scroll when messages change
 
   const addMessage = useCallback((text: string, isGpt: boolean) => {
     setMessages((prevMessages) => [
@@ -69,22 +71,15 @@ export const AssistantPage: React.FC<{ children: React.ReactNode }> = ({
     [threadId, addMessage]
   );
   return (
-    <div className="flex overflow-y-auto flex-col h-screen bg-gray-900">
+    <div className="flex flex-col h-screen bg-gray-900">
       {/* Main container with responsive padding */}
-      <div className="flex-1 flex flex-col max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div className="flex-1 overflow-y-auto">
         {/* Chat container with responsive height */}
-        <div className="flex-1 flex flex-col min-h-0 py-4">
+        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           {/* Messages container with responsive scrolling */}
-          <div className="flex-1">
-            <div
-              className="space-y-4 max-w-3xl mx-auto"
-              style={{
-                //paddingBottom: "calc(80px + env(safe-area-inset-bottom, 16px))",
-                scrollBehavior: "smooth",
-              }}
-            >
+          <div className="py-4">
+            <div className="max-w-3xl mx-auto space-y-4">
               <GptMessage text="Hola, soy MathTutor tu asistente para aprendizaje de matemáticas. ¿Cómo te puedo ayudar?" />
-
               {messages.map((message) =>
                 message.isGpt ? (
                   <GptMessage key={message.id} text={message.text} />
@@ -92,24 +87,18 @@ export const AssistantPage: React.FC<{ children: React.ReactNode }> = ({
                   <MyMessage key={message.id} text={message.text} />
                 )
               )}
-
               {isLoading && (
                 <div className="fade-in">
                   <TypingLoader />
                 </div>
               )}
-              {/* <div
-                ref={containerRef}
-                className="flex-1 overflow-y-auto pb-32"
-                style={{ scrollBehavior: "smooth" }}
-              > */}
               {children}
-              {/* </div> */}
+              <div ref={containerRef} /> {/* Scroll anchor */}
             </div>
           </div>
         </div>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 bg-gray-900">
+      <div className="flex-shrink-0 bg-gray-900 border-t border-gray-800">
         <div className="max-w-6xl mx-auto">
           <TextMessageBox
             onSendMessage={handlePostMessage}

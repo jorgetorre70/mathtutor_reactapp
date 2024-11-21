@@ -16,11 +16,13 @@ interface Message {
   id: string;
 }
 
-export const AssistantPage: React.FC = () => {
+export const AssistantPage: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [threadId, setThreadId] = useState<string | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMessages([]);
@@ -30,8 +32,10 @@ export const AssistantPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [children]);
 
   const addMessage = useCallback((text: string, isGpt: boolean) => {
     setMessages((prevMessages) => [
@@ -93,7 +97,13 @@ export const AssistantPage: React.FC = () => {
                   <TypingLoader />
                 </div>
               )}
-              <div ref={messagesEndRef} />
+              <div
+                ref={containerRef}
+                className="flex-1 overflow-y-auto pb-32"
+                style={{ scrollBehavior: "smooth" }}
+              >
+                {children}
+              </div>
             </div>
           </div>
         </div>

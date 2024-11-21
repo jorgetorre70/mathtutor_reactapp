@@ -22,7 +22,7 @@ export const TextMessageBox = ({
 
   return (
     <div
-      className="w-full bg-white border-t border-gray-200"
+      className="w-full bg-gray-900 border-t border-gray-800"
       style={{
         position: "fixed",
         bottom: 0,
@@ -35,8 +35,7 @@ export const TextMessageBox = ({
       <div className="max-w-4xl mx-auto px-4 py-4">
         <form
           onSubmit={handleSendMessage}
-          className="flex items-center gap-2 sm:gap-4 bg-white rounded-xl shadow-lg
-                   p-2 sm:p-3 border border-gray-200"
+          className="flex items-center gap-2 sm:gap-4 max-w-4xl mx-auto px-4 py-2 sm:py-3"
         >
           {/* Input Container */}
           <div className="flex-1 min-w-0">
@@ -44,8 +43,9 @@ export const TextMessageBox = ({
               type="text"
               autoFocus
               name="message"
-              className="w-full px-3 py-2 sm:py-2.5 text-sm sm:text-base
-                     border border-gray-300 rounded-lg
+              className="w-full px-3 py-2 sm:py-2.5 text-base text-white
+                     bg-gray-800 
+                     border border-gray-700 rounded-lg
                      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
                      transition-colors duration-200
                      placeholder:text-gray-400"

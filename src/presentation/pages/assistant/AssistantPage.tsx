@@ -65,7 +65,7 @@ export const AssistantPage: React.FC = () => {
     [threadId, addMessage]
   );
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-gray-900">
       {/* Main container with responsive padding */}
       <div className="flex-1 flex flex-col max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Chat container with responsive height */}
